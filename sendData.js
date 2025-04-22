@@ -1,7 +1,7 @@
 const axios = require("axios");
 const fs = require("fs");
 
-const API_URL = "http://localhost:3000/data";
+const API_URL = "http://localhost:3000/iot";
 
 const rawData = fs.readFileSync("iot_devices.json");
 const sensorData = JSON.parse(rawData);
