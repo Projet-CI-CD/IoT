@@ -1,0 +1,52 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+
+# Build directories
+dist/
+build/
+
+# OS files
+.DS_Store
+
+# IDE files
+.idea/
+.vscode/
+
+# dotenv environment files
+.env
+.env.local
+.env.*.local
+
+# Next.js build output
+.next/
+out/
+
+# SvelteKit build output
+.svelte-kit/
+
+# Typescript v1 declaration files
+typings/
+
+# VSCode workspace settings
+.vscode/
+
+# macOS Finder directory settings
+.AppleDouble
+.LSOverride
+
+# Windows Installer files
+Thumbs.db
+Desktop.ini
+
+# Other system files
+ehthumbs.db
