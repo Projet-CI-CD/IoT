@@ -1,5 +1,26 @@
 {
   "dependencies": {
     "axios": "^1.8.4"
-  }
+  },
+  "name": "iot",
+  "version": "1.0.0",
+  "description": "1. Dans sendData.js, modifie l'URL si besoin :    ```bash    const API_URL = \"http://X.X.X.X:3000/iot\";    ``` 2. Ouvre un terminal dans le dossier iot :     ```bash    npm install    node sendData.js    ``` 3. Vérifiez que :  - Les données simulées depuis iot_devices.json sont envoyées - L’API Express reçoit bien ces données (affichées en console ou enregistrées)",
+  "main": "sendData.js",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Projet-CI-CD/IoT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Projet-CI-CD/IoT/issues"
+  },
+  "homepage": "https://github.com/Projet-CI-CD/IoT#readme"
 }
