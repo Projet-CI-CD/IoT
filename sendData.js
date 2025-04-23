@@ -50,4 +50,7 @@ async function sendData() {
 
 sendData();
 
-module.exports = { simulateTemperature, simulateHumidity };
+module.exports = {
+  simulateTemperature,
+  simulateHumidity
+};

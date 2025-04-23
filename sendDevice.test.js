@@ -1,4 +1,4 @@
-const { simulateTemperature, simulateHumidity } = require("./sendDevice");
+const { simulateTemperature, simulateHumidity } = require("./sendData");
 
 test("simulateTemperature returns a number between 15 and 30", () => {
   const temp = simulateTemperature();
