@@ -1,5 +1,4 @@
 const axios = require("axios"); 
-const fs = require("fs");
 
 const API_URL = "http://10.70.5.208:3000/iot";
 
