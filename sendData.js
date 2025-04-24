@@ -1,46 +1,49 @@
 const axios = require("axios"); 
 const fs = require("fs");
 
-const API_URL = "http://192.168.0.22:3000/iot";
+const API_URL = "http://10.70.5.208:3000/iot";
 
-const rawData = fs.readFileSync("iot_devices.json");
-const sensorData = JSON.parse(rawData);
+const devices = [];
 
-let currentTemp = 20;
-let currentHumidity = 50;
-
-function simulateTemperature() {
-  const change = (Math.random() - 0.5) * 2;
-  currentTemp = Math.max(15, Math.min(30, currentTemp + change));
-  return parseFloat(currentTemp.toFixed(1));
+for (let i = 0; i < 4; i++) {
+  devices.push({
+    device_id: `device_${i + 1}`,
+    timestamp: new Date().toISOString(),
+    temperature: 20,
+    humidity: 50,
+    type:"device"
+  });
 }
 
-function simulateHumidity() {
+function simulateTemperature(device) {
+  const change = (Math.random() - 0.5) * 2;
+  device.temperature = Math.max(15, Math.min(30, device.temperature + change));
+  return parseFloat(device.temperature.toFixed(1));
+}
+
+function simulateHumidity(device) {
   const change = (Math.random() - 0.5) * 4;
-  currentHumidity = Math.max(30, Math.min(80, currentHumidity + change));
-  return Math.round(currentHumidity);
+  device.humidity = Math.max(30, Math.min(80, device.humidity + change));
+  return Math.round(device.humidity);
 }
 
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-
 async function sendData() {
   while (true) {
-    for (const data of sensorData) {
+    for (const data of devices) {
 
-      const payload = { ...data };
-      payload.timestamp = new Date().toISOString();
-      payload.temperature = simulateTemperature();
-      payload.humidity = simulateHumidity();
+      data.timestamp = new Date().toISOString();
+      data.temperature = simulateTemperature(data);
+      data.humidity = simulateHumidity(data);
 
       try {
-        const response = await axios.post(API_URL, payload);
-        console.log(`Sent ${payload.device_id} → Status: ${response.status}`);
+        const response = await axios.post(API_URL, data);
+        console.log(`Sent ${data.device_id} → Status: ${response.status}`);
       } catch (err) {
-        console.error(`Error sending ${payload.device_id}:`, err.message);
+        console.error(`Error sending ${data.device_id}:`, err.message);
       }
 
       await delay(1000); 
