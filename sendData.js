@@ -1,5 +1,5 @@
 const axios = require("axios"); 
-const fs = require("fs");
+const { simulateTemperature, simulateHumidity } = require("./fonctions");
 
 const API_URL = "http://10.70.5.208:3000/iot";
 
@@ -15,17 +15,7 @@ for (let i = 0; i < 4; i++) {
   });
 }
 
-function simulateTemperature(device) {
-  const change = (Math.random() - 0.5) * 2;
-  device.temperature = Math.max(15, Math.min(30, device.temperature + change));
-  return parseFloat(device.temperature.toFixed(1));
-}
 
-function simulateHumidity(device) {
-  const change = (Math.random() - 0.5) * 4;
-  device.humidity = Math.max(30, Math.min(80, device.humidity + change));
-  return Math.round(device.humidity);
-}
 
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));

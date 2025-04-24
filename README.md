@@ -12,3 +12,6 @@
 3. Vérifiez que : 
 - Les données simulées depuis iot_devices.json sont envoyées
 - L’API Express reçoit bien ces données (affichées en console ou enregistrées)
+
+![CI](https://github.com/SajedehAdelia/Projet-CI-CD/actions/workflows/ci.yml/badge.svg)
+
