@@ -1,7 +1,7 @@
 const axios = require("axios"); 
 const { simulateTemperature, simulateHumidity } = require("./fonctions");
 
-const API_URL = "https://api-749292095840.europe-west9.run.app/iot";
+const API_URL = "http://34.163.42.77:3000/iot";
 
 const devices = [];
 
