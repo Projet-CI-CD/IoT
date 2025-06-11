@@ -7,7 +7,7 @@
 2. Ouvre un terminal dans le dossier iot : 
    ```bash
    npm install
-   node sendData.js
+   npm start
    ```
 3. Vérifiez que : 
 - Les données simulées depuis iot_devices.json sont envoyées
